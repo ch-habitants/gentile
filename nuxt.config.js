@@ -3,7 +3,7 @@ export default {
     target: 'static',
 
     router: {
-        base: '/ch-habitants.github.io/',
+        base: '/ch-habitants/gentile/',
     },
     
     // Global page headers: https://go.nuxtjs.dev/config-head
