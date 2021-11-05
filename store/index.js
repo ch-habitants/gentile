@@ -12,11 +12,11 @@ export const getters = {
 
     gentiles(state) {
         return state.gentiles;
-    }
+    },
 };
 
 export const mutations = {
     setSearchValue(state, value) {
         state.searchValue = value;
-    }
+    },
 };
