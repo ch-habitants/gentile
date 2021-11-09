@@ -23,7 +23,7 @@ export default {
     computed: {
         ...mapGetters([
             'searchValue',
-            'gentiles'
+            'gentiles',
         ]),
 
         filteredGentile() {
@@ -34,7 +34,7 @@ export default {
                     item.gentile.includes(this.searchValue)
                 );
             });
-        }
-    }
+        },
+    },
 };
 </script>
