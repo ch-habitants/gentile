@@ -1,14 +1,11 @@
 <template>
-    <div>
+    <div class="py-12 bg-primary">
         <input
-            id="search-field"
             v-model="value"
             type="text"
-            name="search-value"
+            class="appearance-none m-auto px-4 py-2 block border border-primary rounded shadow-sm text-center focus:outline-none"
+            placeholder="Rechercher"
         >
-        <button id="search-button">
-            Search
-        </button>
     </div>
 </template>
 <script>
