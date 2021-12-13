@@ -1,6 +1,6 @@
 <template>
     <div class="flex flex-col">
-        <div class="overflow-x-auto">
+        <div class="border rounded shadow overflow-x-auto">
             <table class="w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-primary-900 text-opacity-60 uppercase tracking-wider">
