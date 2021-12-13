@@ -2,8 +2,9 @@ export default {
     // Target: https://go.nuxtjs.dev/config-target
     target: 'static',
 
+    // Router: https://nuxtjs.org/docs/configuration-glossary/configuration-router/
     router: {
-        base: '/ch-habitants/gentile/',
+        base: '/gentile/',
     },
     
     // Global page headers: https://go.nuxtjs.dev/config-head
