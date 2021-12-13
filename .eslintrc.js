@@ -15,6 +15,8 @@ module.exports = {
     // add your custom rules here
     rules: {
         'comma-dangle': ['error', 'only-multiline'],
+        // PXS-1209: Can we remove that rule once Vuex is upgraded?
+        'import/no-named-as-default-member': 0,
         indent: ['warn', 4],
         'no-trailing-spaces': ['error', { skipBlankLines: true }],
         semi: ['error', 'always'],
