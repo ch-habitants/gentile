@@ -1,7 +1,6 @@
 {
   "name": "gentile",
   "short_name": "gentile",
-  "description": "PWA to consult the names of the inhabitants of the communes of Switzerland",
   "icons": [
     {
       "src": "/_nuxt/icons/icon_64x64.5f6a36.png",
