@@ -1,3 +1,7 @@
+/**
+ * We will test this component later as it will probably
+ * change a lot.
+ */
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import GentileList from '@/components/GentileList.vue';
