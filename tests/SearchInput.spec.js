@@ -1,13 +1,13 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
 import { assertContain } from './utils';
-import SearchBar from '@/components/SearchBar.vue';
+import SearchInput from '@/components/SearchInput.vue';
 
 // Scoped Vue to avoid affecting the global Vue
 const localVue = createLocalVue();
 localVue.use(Vuex);
 
-describe('SearchBar', () => {
+describe('SearchInput', () => {
     let wrapper;
 
     let getters;
@@ -23,7 +23,7 @@ describe('SearchBar', () => {
             getters,
         });
 
-        wrapper = mount(SearchBar, {
+        wrapper = mount(SearchInput, {
             localVue,
             store,
         });

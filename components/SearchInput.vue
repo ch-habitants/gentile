@@ -12,6 +12,9 @@
 import { mapGetters } from 'vuex';
 
 export default {
+
+    name: 'SearchInput',
+
     computed: {
         ...mapGetters(['searchValue']),
 
