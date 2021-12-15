@@ -45,15 +45,18 @@ export default {
     computed: {
         ...mapGetters([
             'searchValue',
+            'selectedCanton',
             'gentiles',
         ]),
 
         filteredGentile() {
             return this.gentiles.filter((item) => {
                 return (
-                    item.canton.includes(this.searchValue) ||
-                    item.commune.includes(this.searchValue) ||
-                    item.gentile.includes(this.searchValue)
+                    item.canton.includes(this.selectedCanton) &&
+                    (
+                        item.commune.toLowerCase().includes(this.searchValue.toLowerCase()) ||
+                        item.gentile.toLowerCase().includes(this.searchValue.toLowerCase())
+                    )
                 );
             });
         },
