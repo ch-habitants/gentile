@@ -10,7 +10,7 @@
         >
             <!-- Selected canton -->
             <span
-                v-if="selectedCanton"
+                v-if="selectedCanton.name"
                 class="flex items-center"
             >
                 <!-- Flag -->
@@ -56,7 +56,7 @@
                     id="canton-select-option-none"
                     class="text-primary-900 text-opacity-60 cursor-default select-none relative py-2 pl-6 pr-9 hover:bg-gray-100 duration-300"
                     role="option"
-                    @click="select('')"
+                    @click="select({ slug: '', name: '' })"
                 >
                     Aucun
                 </li>
