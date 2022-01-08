@@ -1,9 +1,6 @@
-name: Deploy
+name: Test
 
-on:
-  push:
-    branches:
-      - main
+on: [pull_request]
 
 jobs:
 
@@ -23,9 +20,3 @@ jobs:
 
       - name: Generate application
         run: npm run generate
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
