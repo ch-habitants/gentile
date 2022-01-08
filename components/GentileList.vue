@@ -54,8 +54,8 @@ export default {
                 function normalize(str) {
                     return str
                         .toLowerCase()
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036F]/g, '')
+                        .normalize('NFD') // Split accented letters into the letter and accent (i.e. 'é' => 'e´')
+                        .replace(/[\u0300-\u036F]/g, '') // Remove accents
                         .replace('-', ' ');
                 }
 
