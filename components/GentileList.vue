@@ -51,11 +51,20 @@ export default {
 
         filteredGentile() {
             return this.gentiles.filter((item) => {
+                function normalize(str) {
+                    return str
+                        .toLowerCase()
+                        .normalize('NFD') // Split accented letters into the letter and accent (i.e. 'é' => 'e´')
+                        .replace(/[\u0300-\u036F]/g, '') // Remove accents
+                        .replace('-', ' ');
+                }
+
+                const search = normalize(this.searchValue);
                 return (
                     item.canton.includes(this.selectedCanton) &&
                     (
-                        item.commune.toLowerCase().includes(this.searchValue.toLowerCase()) ||
-                        item.gentile.toLowerCase().includes(this.searchValue.toLowerCase())
+                        normalize(item.commune).includes(search) ||
+                        normalize(item.gentile).includes(search)
                     )
                 );
             });
