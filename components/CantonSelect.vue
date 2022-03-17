@@ -1,9 +1,9 @@
 <template>
     <div class="mt-1 relative">
         <!-- Select -->
-        <button
-            type="button"
-            class="relative w-80 bg-white border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left cursor-default focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        <div
+            class="relative w-80 bg-gray-50 border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left sm:text-sm duration-300"
+            :class="{ 'ring-2 ring-primary-400': open }"
             aria-haspopup="canton-select"
             aria-expanded="true"
             @click="open = true"
@@ -14,15 +14,22 @@
                 class="flex items-center"
             >
                 <!-- Flag -->
-                <span class="ml-3 block truncate">
+                <img
+                    class="w-5 h-5"
+                    :src="selectedCanton.img"
+                    :alt="selectedCanton.name"
+                >
+
+                <!-- Name -->
+                <span class="ml-3 block truncate text-primary-900">
                     {{ selectedCanton.name }}
                 </span>
             </span>
 
             <!-- No canton selected -->
             <span v-else>
-                <span class="ml-3 block truncate">
-                    Aucun
+                <span class="block truncate text-primary-900 text-opacity-60">
+                    Canton
                 </span>
             </span>
 
@@ -33,7 +40,7 @@
                     <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
                 </svg>
             </span>
-        </button>
+        </div>
 
         <!-- Options -->
         <transition
@@ -46,7 +53,7 @@
         >
             <ul
                 v-if="open"
-                class="absolute z-10 mt-1 w-80 bg-white shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                class="absolute z-10 mt-1 w-80 bg-gray-50 shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
                 tabindex="-1"
                 role="canton-select"
                 aria-activedescendant="canton-select-option-3"
@@ -54,9 +61,9 @@
                 <!-- No selection option -->
                 <li
                     id="canton-select-option-none"
-                    class="text-primary-900 text-opacity-60 cursor-default select-none relative py-2 pl-6 pr-9 hover:bg-gray-100 duration-300"
+                    class="text-primary-900 text-opacity-60 select-none relative py-2 pl-3 pr-9 hover:bg-primary-50 duration-300"
                     role="option"
-                    @click="select({ slug: '', name: '' })"
+                    @click="select({ slug: '', name: '', img: '' })"
                 >
                     Aucun
                 </li>
@@ -66,12 +73,19 @@
                     v-for="(canton, index) in cantons"
                     :id="`canton-select-option-${index}`"
                     :key="index"
-                    class="text-primary-900 text-opacity-80 cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-gray-100 duration-300"
+                    class="text-primary-900 select-none relative py-2 pl-3 pr-9 hover:bg-primary-50 duration-300"
                     role="option"
                     @click="select(canton)"
                 >
                     <div class="flex items-center">
                         <!-- Flag -->
+                        <img
+                            class="w-5 h-5"
+                            :src="canton.img"
+                            :alt="canton.name"
+                        >
+
+                        <!-- Name -->
                         <span
                             class="ml-3 block truncate"
                             :class="{
