@@ -3,10 +3,10 @@
         <!-- Select -->
         <div
             class="relative w-80 bg-gray-50 border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left sm:text-sm duration-300"
-            :class="{ 'ring-2 ring-primary-400': open }"
+            :class="{ 'ring-2 ring-primary-400': isOpen }"
             aria-haspopup="canton-select"
             aria-expanded="true"
-            @click="open = true"
+            @click="isOpen = true"
         >
             <!-- Selected canton -->
             <span
@@ -52,7 +52,7 @@
             leave-to-class="transform opacity-0 scale-95"
         >
             <ul
-                v-if="open"
+                v-if="isOpen"
                 class="absolute z-10 mt-1 w-80 bg-gray-50 shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
                 tabindex="-1"
                 role="canton-select"
@@ -115,32 +115,21 @@
 
 <script>
 import { mapGetters, mapMutations } from 'vuex';
+import close from '~/mixins/close';
 
 export default {
     
     name: 'CantonSelect',
 
-    data() {
-        return {
-            open: false,
-        };
-    },
+    mixins: [
+        close,
+    ],
 
     computed: {
         ...mapGetters([
             'cantons',
             'selectedCanton',
         ]),
-    },
-
-    mounted() {
-        // Register a click event to close the menu when clicking outside of it
-        document.addEventListener('click', this.close);
-    },
-
-    beforeDestroy() {
-        // Destroy the click event listener
-        document.removeEventListener('click', this.close);
     },
 
     methods: {
@@ -153,14 +142,7 @@ export default {
             this.setSelectedCanton(canton);
 
             // Close the menu
-            this.open = false;
-        },
-
-        // Close the menu
-        close(e) {
-            if (!this.$el.contains(e.target)) {
-                this.open = false;
-            }
+            this.isOpen = false;
         },
     },
 
