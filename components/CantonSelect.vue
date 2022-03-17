@@ -71,7 +71,7 @@
                 <!-- List of cantons -->
                 <li
                     v-for="(canton, index) in cantons"
-                    :id="`canton-select-option-${index}`"
+                    :id="`canton-select-option-${canton.slug}`"
                     :key="index"
                     class="select-none relative py-2 pl-3 pr-9 text-primary-900 hover:bg-primary-50 duration-300"
                     role="option"
