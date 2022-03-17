@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-1 relative">
+    <div class="relative">
         <!-- Select -->
         <div
             class="relative w-80 bg-gray-50 border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left sm:text-sm duration-300"
@@ -29,7 +29,7 @@
             <!-- No canton selected -->
             <span v-else>
                 <span class="block truncate text-primary-900 text-opacity-60">
-                    Canton
+                    Trier par canton
                 </span>
             </span>
 
@@ -61,11 +61,11 @@
                 <!-- No selection option -->
                 <li
                     id="canton-select-option-none"
-                    class="text-primary-900 text-opacity-60 select-none relative py-2 pl-3 pr-9 hover:bg-primary-50 duration-300"
+                    class="select-none relative py-2 pl-3 pr-9 text-primary-900 text-opacity-60 hover:bg-primary-50 duration-300"
                     role="option"
                     @click="select({ slug: '', name: '', img: '' })"
                 >
-                    Aucun
+                    Aucun canton
                 </li>
 
                 <!-- List of cantons -->
@@ -73,7 +73,7 @@
                     v-for="(canton, index) in cantons"
                     :id="`canton-select-option-${index}`"
                     :key="index"
-                    class="text-primary-900 select-none relative py-2 pl-3 pr-9 hover:bg-primary-50 duration-300"
+                    class="select-none relative py-2 pl-3 pr-9 text-primary-900 hover:bg-primary-50 duration-300"
                     role="option"
                     @click="select(canton)"
                 >
@@ -100,7 +100,7 @@
                     <!-- Selected canton icon -->
                     <span
                         v-if="canton.slug === selectedCanton.slug"
-                        class="text-primary absolute inset-y-0 right-0 flex items-center pr-4"
+                        class="absolute inset-y-0 right-0 flex items-center pr-4 text-primary"
                     >
                         <!-- Heroicon name: solid/check -->
                         <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
