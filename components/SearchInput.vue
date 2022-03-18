@@ -1,46 +1,13 @@
 <template>
-    <div class="py-12 bg-primary">
-        <select v-model="canton">
-            <option value="">
-                Aucun
-            </option>
-            <option>Appenzell Rhodes-Extérieures</option>
-            <option>Appenzell Rhodes-Intérieures</option>
-            <option>Argovie</option>
-            <option>Berne</option>
-            <option>Bâle-Campagne</option>
-            <option>Bâle-Ville</option>
-            <option>Fribourg</option>
-            <option>Genève</option>
-            <option>Glaris</option>
-            <option>Grisons</option>
-            <option>Jura</option>
-            <option>Lucerne</option>
-            <option>Neuchâtel</option>
-            <option>Nidwald</option>
-            <option>Obwald</option>
-            <option>Saint-Gall</option>
-            <option>Schaffhouse</option>
-            <option>Schwytz</option>
-            <option>Soleure</option>
-            <option>Tessin</option>
-            <option>Thurgovie</option>
-            <option>Uri</option>
-            <option>Valais</option>
-            <option>Vaud</option>
-            <option>Zoug</option>
-            <option>Zurich</option>
-        </select>
-        <input
-            v-model="value"
-            type="text"
-            class="appearance-none m-auto px-4 py-2 block border border-primary rounded shadow-sm text-center focus:outline-none duration-300"
-            placeholder="Rechercher"
-        >
-    </div>
+    <input
+        v-model="value"
+        type="text"
+        class="appearance-none w-80 bg-gray-50 border border-gray-300 rounded-md shadow-sm px-3 py-2 text-left sm:text-sm text-primary-900 placeholder-primary-900 placeholder-opacity-60 focus:ring-2 focus:ring-primary-400 focus:outline-none duration-300"
+        placeholder="Rechercher"
+    >
 </template>
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations } from 'vuex';
 
 export default {
 
@@ -49,7 +16,6 @@ export default {
     computed: {
         ...mapGetters([
             'searchValue',
-            'selectedCanton'
         ]),
 
         value: {
@@ -58,19 +24,16 @@ export default {
             },
 
             set(value) {
-                this.$store.commit('setSearchValue', value);
-            },
-        },
-
-        canton: {
-            get() {
-                return this.selectedCanton;
-            },
-
-            set(value) {
-                this.$store.commit('setSelectedCanton', value);
+                this.setSearchValue(value);
             },
         },
     },
+
+    methods: {
+        ...mapMutations([
+            'setSearchValue',
+        ]),
+    },
+
 };
 </script>

@@ -61,7 +61,7 @@ export default {
 
                 const search = normalize(this.searchValue);
                 return (
-                    item.canton.includes(this.selectedCanton) &&
+                    item.canton.includes(this.selectedCanton.name) &&
                     (
                         normalize(item.commune).includes(search) ||
                         normalize(item.gentile).includes(search)
