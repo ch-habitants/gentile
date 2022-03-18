@@ -46,6 +46,10 @@ describe('CantonSelect', () => {
         wrapper = mount(CantonSelect, {
             localVue,
             store,
+            stubs: {
+                IconsSolidCheck: true,
+                IconsSolidSelector: true,
+            },
         });
     };
 
