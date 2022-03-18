@@ -61,7 +61,7 @@ describe('CantonSelect', () => {
         assertContain('class="relative w-80 bg-gray-50 border border-gray-300 rounded-md shadow-sm pl-3 pr-10 py-2 text-left sm:text-sm duration-300"', 'div', wrapper);
 
         // No canton selected
-        assertContain('Trier par canton', 'div', wrapper);
+        assertContain('Filtrer par canton', 'div', wrapper);
     });
 
     test('contains the select input with a selected canton', () => {

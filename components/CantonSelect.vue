@@ -29,7 +29,7 @@
             <!-- No canton selected -->
             <span v-else>
                 <span class="block truncate text-primary-900 text-opacity-60">
-                    Trier par canton
+                    Filtrer par canton
                 </span>
             </span>
 
