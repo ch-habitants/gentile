@@ -50,7 +50,7 @@
         >
             <ul
                 v-if="isOpen"
-                class="absolute z-10 mt-1 w-80 bg-gray-50 shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
+                class="absolute z-20 mt-1 w-80 bg-gray-50 shadow-lg max-h-56 rounded-md py-1 text-base ring-1 ring-black ring-opacity-5 overflow-auto focus:outline-none sm:text-sm"
                 tabindex="-1"
                 role="canton-select"
                 aria-activedescendant="canton-select-option-3"

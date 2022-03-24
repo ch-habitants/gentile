@@ -18,6 +18,9 @@ module.exports = {
                     900: '#000000',
                 },
             },
+            height: {
+                128: '32rem',
+            },
         },
     },
     variants: {
