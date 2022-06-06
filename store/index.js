@@ -177,7 +177,7 @@ export const mutations = {
 
 export const actions = {
     async fetchGentile(ctx) {
-        const response = await fetch('http://localhost:8000/communes/');
+        const response = await fetch('http://138.197.185.150/communes/');
         response.json().then((result) => {
             ctx.commit('setCommunes', result);
         });
