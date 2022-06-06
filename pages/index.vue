@@ -14,9 +14,21 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
     
     name: 'HomePage',
+
+    mounted() {
+        this.fetchGentile();
+    },
+
+    methods: {
+        ...mapActions([
+            'fetchGentile',
+        ]),
+    }
     
 };
 </script>
