@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-import SearchInput from '@/components/SearchInput.vue';
 import { assertContain } from './utils';
+import SearchInput from '@/components/SearchInput.vue';
 
 // Scoped Vue to avoid affecting the global Vue
 const localVue = createLocalVue();

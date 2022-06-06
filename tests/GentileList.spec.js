@@ -21,7 +21,7 @@ describe('GentileList', () => {
         getters = {
             searchValue: () => '',
 
-            gentiles: () => [],
+            communes: () => [],
         };
 
         store = new Vuex.Store({

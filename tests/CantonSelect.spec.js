@@ -1,7 +1,7 @@
 import { mount, createLocalVue } from '@vue/test-utils';
 import Vuex from 'vuex';
-import CantonSelect from '@/components/CantonSelect.vue';
 import { assertContain } from './utils';
+import CantonSelect from '@/components/CantonSelect.vue';
 
 // Scoped Vue to avoid affecting the global Vue
 const localVue = createLocalVue();
