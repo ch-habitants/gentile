@@ -15,7 +15,7 @@
                 </thead>
                 <tbody>
                     <tr
-                        v-for="(gentile, index) in filteredGentile"
+                        v-for="(commune, index) in filteredCommunes"
                         :key="index"
                         class="hover:bg-gray-200 duration-300"
                         :class="{
@@ -24,13 +24,13 @@
                         }"
                     >
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary-900 text-opacity-80">
-                            {{ gentile.canton }}
+                            {{ commune.canton.name_fr }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary-900 text-opacity-80">
-                            {{ gentile.commune }}
+                            {{ commune.name_fr }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary-900 text-opacity-80">
-                            {{ gentile.gentile }}
+                            {{ commune.gentile_fr }}
                         </td>
                     </tr>
                 </tbody>
@@ -46,11 +46,11 @@ export default {
         ...mapGetters([
             'searchValue',
             'selectedCanton',
-            'gentiles',
+            'communes',
         ]),
 
-        filteredGentile() {
-            return this.gentiles.filter((item) => {
+        filteredCommunes() {
+            return this.communes.filter((commune) => {
                 function normalize(str) {
                     return str
                         .toLowerCase()
@@ -61,10 +61,10 @@ export default {
 
                 const search = normalize(this.searchValue);
                 return (
-                    item.canton.includes(this.selectedCanton.name) &&
+                    commune.canton.name_fr.includes(this.selectedCanton.name) &&
                     (
-                        normalize(item.commune).includes(search) ||
-                        normalize(item.gentile).includes(search)
+                        commune.searchable_name.includes(search) ||
+                        commune.searchable_gentile.includes(search)
                     )
                 );
             });
